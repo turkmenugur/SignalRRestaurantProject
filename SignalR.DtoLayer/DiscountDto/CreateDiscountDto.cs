@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.DtoLayer.DiscountDto
 {
-    public class CreateResultDto
+    public class CreateDiscountDto
     {
         public string Title { get; set; }
         public string Amount { get; set; }

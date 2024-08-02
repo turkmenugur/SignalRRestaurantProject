@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.DiscountDto;
 using SignalR.DtoLayer.FeatureDto;
+using SignalR.DtoLayer.FeatureDtos;
 using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers
@@ -43,7 +44,7 @@ namespace SignalRApi.Controllers
             return Ok("Öne çıkan bilgisi eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteFeature(int id)
         {
             var value = _featureService.TGetByID(id);
@@ -51,7 +52,7 @@ namespace SignalRApi.Controllers
             return Ok("Öne çıkan bilgisi silindi");
         }
 
-        [HttpGet("GetFeature")]
+        [HttpGet("{id}")]
         public IActionResult GetFeature(int id)
         {
             var value = _featureService.TGetByID(id);

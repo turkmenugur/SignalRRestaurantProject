@@ -134,10 +134,11 @@
             var id = value;
             $.ajax({
                 type: 'post',
-                data: { item: id },
+                url: "/Menu/AddBasket/" + id,
+                data: { ProductID: id },
                 contentType: 'json',
                 success: function () {
-                    swal("Seçilen Ürün ID:" +id , "Seçiminizi Yaptınız!", "success");
+                    swal("Seçilen Ürün ID:" +id , "Seçtiğiniz ürün sepetinize eklendi!", "success");
                 }
             });
         }

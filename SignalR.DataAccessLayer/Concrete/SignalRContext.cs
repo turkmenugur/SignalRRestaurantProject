@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SignalR.EntityLayer.Entities;
 using SignalRApi.DAL.Entities;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 namespace SignalR.DataAccessLayer.Concrete
 {
     //Bağlantı sınıfı
-    public class SignalRContext : DbContext
+    public class SignalRContext : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

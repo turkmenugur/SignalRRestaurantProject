@@ -34,20 +34,20 @@ namespace SignalRWebUI.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> CreateContact(CreateContactDto createContactDto)
-		{
-			var client = _httpClientFactory.CreateClient();
-			var jsonData = JsonConvert.SerializeObject(createContactDto);
-			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PostAsync("https://localhost:7168/api/Contact", stringContent);
-			if (responseMessage.IsSuccessStatusCode)
-			{
-				return RedirectToAction("Index");
-			}
-			return View();
-		}
+        public async Task<IActionResult> CreateContact(CreateContactDto createContactDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createContactDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7168/api/Contact", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
 
-		public async Task<IActionResult> DeleteContact(int id)
+        public async Task<IActionResult> DeleteContact(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.DeleteAsync($"https://localhost:7168/api/Contact/{id}");

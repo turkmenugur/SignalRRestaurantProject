@@ -33,7 +33,7 @@ namespace SignalRApi.Controllers
         public IActionResult CreateMessage(CreateMessageDto createMessageDto)
         {
             createMessageDto.MessageSendDate = DateTime.Now;
-            createMessageDto.Status = false,
+            createMessageDto.Status = false;
             var value = _mapper.Map<Message>(createMessageDto);
             _messageService.TAdd(value);
             return Ok("Mesaj başarılı bir şekilde gönderildi.");
